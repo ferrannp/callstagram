@@ -42,6 +42,7 @@ class Feed extends React.Component {
           <FlatList
             data={images}
             keyExtractor={item => item.id}
+            contentContainerStyle={styles.list}
             renderItem={({ item }) => (
               <FeedItem item={item} onItemPress={this.onItemPress} />
             )}
@@ -57,6 +58,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+  },
+  list: {
+    margin: -2,
   },
 });
 

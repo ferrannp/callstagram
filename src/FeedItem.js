@@ -10,7 +10,7 @@ class FeedItem extends React.PureComponent {
   render() {
     const { item } = this.props;
     return (
-      <TouchableOpacity onPress={this.onItemPress}>
+      <TouchableOpacity onPress={this.onItemPress} style={styles.container}>
         <Image style={styles.image} source={{ uri: item.imageUrl }} />
       </TouchableOpacity>
     );
@@ -18,9 +18,12 @@ class FeedItem extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 2,
+  },
   image: {
     height: 125,
-    width: width / 3,
+    width: width / 3 - 2,
     resizeMode: 'cover',
   },
 });

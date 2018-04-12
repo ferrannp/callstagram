@@ -59,7 +59,7 @@ class Detail extends React.Component {
           />
           <View style={styles.content}>
             <Text style={styles.text}>{`${likes} like${
-              item.numberOfLikes === 1 ? '' : 's'
+              likes === 1 ? '' : 's'
             } `}</Text>
           </View>
         </View>

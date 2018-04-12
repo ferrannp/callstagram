@@ -4,7 +4,7 @@ import {
   Dimensions,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
   View,
 } from 'react-native';
 
@@ -25,10 +25,12 @@ class Detail extends React.Component {
       Animated.timing(this.state.scale, {
         toValue: 1,
         duration: 100,
+        useNativeDriver: true,
       }),
       Animated.timing(this.state.scale, {
         toValue: 0,
         duration: 100,
+        useNativeDriver: true,
       }),
     ]).start();
 
@@ -51,7 +53,7 @@ class Detail extends React.Component {
     };
 
     return (
-      <TouchableOpacity activeOpacity={1} onPress={this.onItemLike}>
+      <TouchableWithoutFeedback onPress={this.onItemLike}>
         <View>
           <Animated.Image
             style={[imageStyle, styles.image]}
@@ -63,7 +65,7 @@ class Detail extends React.Component {
             } `}</Text>
           </View>
         </View>
-      </TouchableOpacity>
+      </TouchableWithoutFeedback>
     );
   }
 }

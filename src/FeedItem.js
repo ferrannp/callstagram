@@ -1,5 +1,6 @@
 import React from 'react';
-import { Dimensions, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { Dimensions, Image, StyleSheet, View } from 'react-native';
+import Touchable from './Touchable';
 
 const width = Dimensions.get('window').width;
 
@@ -10,9 +11,11 @@ class FeedItem extends React.PureComponent {
   render() {
     const { item } = this.props;
     return (
-      <TouchableOpacity onPress={this.onItemPress} style={styles.container}>
-        <Image style={styles.image} source={{ uri: item.imageUrl }} />
-      </TouchableOpacity>
+      <Touchable onPress={this.onItemPress}>
+        <View style={styles.container}>
+          <Image style={styles.image} source={{ uri: item.imageUrl }} />
+        </View>
+      </Touchable>
     );
   }
 }
@@ -23,7 +26,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 125,
-    width: width / 3 - 2,
+    width: width / 3,
     resizeMode: 'cover',
   },
 });
